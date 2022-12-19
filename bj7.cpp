@@ -1,6 +1,6 @@
 
 
-#include "07_blackjack.h"
+#include "bj7.h"
 
 using namespace std;
 
