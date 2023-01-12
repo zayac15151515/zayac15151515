@@ -95,17 +95,17 @@ int main (void) {
 
     cout << "Lesson 05. Associative STL containers.\n\n";
 
-    // * Exercises #1
+
     cout << "Exercise #1.\n";
 
     const size_t MAX_SIZE = 10;
-    // * example with array
+
     array <string, MAX_SIZE> example_1;
-    // distribution int of RNG
+
     uniform_int_distribution <int> RNG_INT(0, 5);
-    // create & initialize RNG
+
     mt19937 gen {random_device()()};
-    // fill the array
+
 
     for_each (begin(example_1), end(example_1),
         [&RNG_INT, &gen] (string &value)
@@ -114,32 +114,30 @@ int main (void) {
         sprintf (buf, "%02d", RNG_INT(gen));
         value = buf;}
         );
-    // display the array
+
     cout << "source array <" << example_1.size() << ">: ";
     copy (begin(example_1), end(example_1), ostream_iterator<string> (cout, " "));
     cout << endl;
-    // display the result
+
     displayUnique <string> (example_1.begin(), example_1.end());
 
-    // * example with string stream
+
     stringstream example_2;
     copy (begin(example_1), end(example_1), ostream_iterator<string> (example_2, " "));
     cout << "source strstream <the same data> ... " << endl;
     displayUnique <string> (istream_iterator<string>{example_2}, {});
 
-    // * Exercise #2
-    cout << "\nExercise #2.\n";
 
     cout << "input text: ";
     string source;
     cin.unsetf(ios::skipws);
-    // get text
+
     getline (cin, source, '\n');
-    // result
+
     multimap <uint32_t, string> result;
-    // calculation
+
     calcValues (source, result);
-    // display result
+
     cout << "top 5 longest sentences:" << endl;
     int count = 5;
     for (auto item = result.rbegin(); item != result.rend() && count > 0; item++, count--) {
@@ -148,4 +146,4 @@ int main (void) {
     
     // return o.k.
     return EXIT_SUCCESS;
-} // main
+} 
