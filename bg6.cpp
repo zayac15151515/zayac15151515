@@ -1,4 +1,4 @@
-#include "06_blackjack.h"
+#include "bg6.h"
 
 using namespace std;
 
